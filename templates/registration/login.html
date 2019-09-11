@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titile %}Войдите{% endblock%}
+
+{% block main_content %}
+    <h>Вход</h>
+    {% if form.errors %}
+        <p>Ошибка: пароль или логин неправильные. Пропробуйте снова</p>
+    {% else %}
+        <p>Введите логин/пароль</p>
+    {% endif %}
+    <form action="." method="POST" class="login">
+        {{ form.as_p }}
+        {%  csrf_token %}
+        <input type="hidden" name="next" value="{% url "tasks:list" %}" />
+        <button type="submit">Войти</button>
+    </form>
+   <p><a href="{% url "password_reset" %}">Забыли пароль?</a></p>
+   <a href="{% url "register" %}">зарегистрироваться</a>
+{% endblock %}

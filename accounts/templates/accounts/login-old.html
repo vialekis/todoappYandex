@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Войдите{% endblock %}
+
+{% block main_content %}
+    <h1>Вход</h1>
+    <p>введите логин/пароль:</p>
+    <form action="." metod="POST" class="login">
+        {{form.as_p}}
+        {% csrf_token %}
+        <button type="submit">Войти</button>
+
+    </form>
+    <a href="{% url "register" %}">зарегистрироваться</a>
+{% endblock %}

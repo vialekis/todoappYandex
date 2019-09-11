@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Вы вышли{% endblock %}
+{% block main_content %}
+<h>Вы вышли</h>
+<p>Сессия работы с сайтом завершена. Всегда можно <a href="{% url "login" %}">залогиниться и вернуться обратно</a></p>
+{% endblock %}

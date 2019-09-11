@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Импорт задач из Trello{% endblock %}
+
+{% block main_content %}
+  <h1>Введите ID списка с задачами</h1>
+  <form action="{% url "tasks:import" %}" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><button class="add" type="submit">Импортировать</button></p>
+  </form>
+{% endblock %}
